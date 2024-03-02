@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"task": "build",
+			"type": "dotnet",
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build",
+			"label": "build",
+			"detail": "Build the project",
+		}
+	]
+}

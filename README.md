@@ -13,5 +13,5 @@ Micro serviço referente ao controle de acesso dos usuários.
 
 ## Pre requisitos
 
-- .NET 6
+- .NET 8
 - 
