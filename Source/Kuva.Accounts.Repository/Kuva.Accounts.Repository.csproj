@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Title>Kuva accounts repository</Title>
+        <Description>Data repository for kuva accounts</Description>
+        <Copyright>Bitx Labs Tecnologia Ltda</Copyright>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Class1.cs" />
+      <Compile Remove="DAL\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="13.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="DAL\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="DAL\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Kuva.Accounts.Entities\Kuva.Accounts.Entities.csproj" />
+    </ItemGroup>
+
+</Project>

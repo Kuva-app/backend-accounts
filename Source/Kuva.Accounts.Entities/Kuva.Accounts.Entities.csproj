@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>default</LangVersion>
+        <Nullable>warnings</Nullable>
+        <Title>Kuva accounts entities</Title>
+        <Description>Entities for Kuva acounts</Description>
+        <Copyright>Bitx Labs Tecnologia Ltda</Copyright>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Class1.cs" />
+      <Compile Remove="AccountEntity.cs" />
+      <Compile Remove="PasswordTokenEntity.cs" />
+    </ItemGroup>
+
+</Project>

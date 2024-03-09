@@ -403,3 +403,6 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+/docker
+/Source/Kuva.Accounts.EFMigrations/Migrations
+*.exe

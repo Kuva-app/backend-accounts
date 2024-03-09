@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>default</LangVersion>
+    <Nullable>warnings</Nullable>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <UserSecretsId>2f239b69-851b-4d9d-ad98-e74ddbf584e3</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.2" NoWarn="NU1605" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.2" NoWarn="NU1605" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Utilities.General" Version="1.2.0" />
+    <PackageReference Include="Utilities.Security" Version="1.0.20" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\WeatherForecastController.cs" />
+    <Compile Remove="WeatherForecast.cs" />
+    <Compile Remove="Migrations\20210207083210_initialCreate.cs" />
+    <Compile Remove="Migrations\20210207083210_initialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20210207182357_tableUpdate.cs" />
+    <Compile Remove="Migrations\20210207182357_tableUpdate.Designer.cs" />
+    <Compile Remove="Migrations\20210207224255_updateUserUserLevel.cs" />
+    <Compile Remove="Migrations\20210207224255_updateUserUserLevel.Designer.cs" />
+    <Compile Remove="Migrations\20210207224721_updateUserUserLevel2.cs" />
+    <Compile Remove="Migrations\20210207224721_updateUserUserLevel2.Designer.cs" />
+    <Compile Remove="Migrations\20210208005620_AlterTableUserUserLevelValueGenerate.cs" />
+    <Compile Remove="Migrations\20210208005620_AlterTableUserUserLevelValueGenerate.Designer.cs" />
+    <Compile Remove="Migrations\AccountsContextModelSnapshot.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Kuva.Accounts.Business\Kuva.Accounts.Business.csproj" />
+  </ItemGroup>
+
+</Project>

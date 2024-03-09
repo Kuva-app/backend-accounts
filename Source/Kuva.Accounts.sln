@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commom", "Commom", "{2849F9AC-C54F-471F-B7E4-31BED525E477}"
+	ProjectSection(SolutionItems) = preProject
+		..\.env = ..\.env
+		..\docker-compose.yml = ..\docker-compose.yml
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CI", "CI", "{D0B9DE06-AC2B-4B66-AA28-68460BEEF47B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kuva.Accounts.Entities", "Kuva.Accounts.Entities\Kuva.Accounts.Entities.csproj", "{BEDC71F9-7DAF-4D76-90F1-C52684E09EB2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kuva.Accounts.Business", "Kuva.Accounts.Business\Kuva.Accounts.Business.csproj", "{6AED96E4-6816-4B66-9A5D-C9D8BFF4A2AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kuva.Accounts.EFMigrations", "Kuva.Accounts.EFMigrations\Kuva.Accounts.EFMigrations.csproj", "{80C48282-7C32-4093-B555-FAD9284367C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kuva.Accounts.Repository", "Kuva.Accounts.Repository\Kuva.Accounts.Repository.csproj", "{3E443AF0-E627-42D6-8E59-A432D852DE94}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kuva.Accounts.Service", "Kuva.Accounts.Service\Kuva.Accounts.Service.csproj", "{694548F0-BF84-4F64-9F57-45BEC7DF1CDF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kuva.Accounts.Tests", "Kuva.Accounts.Tests\Kuva.Accounts.Tests.csproj", "{3BD7C549-4B78-44EF-BAF1-4DE6422EEBA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EDD03BD8-44FE-46BF-ACB8-3290CB18D359}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEDC71F9-7DAF-4D76-90F1-C52684E09EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEDC71F9-7DAF-4D76-90F1-C52684E09EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEDC71F9-7DAF-4D76-90F1-C52684E09EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEDC71F9-7DAF-4D76-90F1-C52684E09EB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AED96E4-6816-4B66-9A5D-C9D8BFF4A2AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AED96E4-6816-4B66-9A5D-C9D8BFF4A2AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AED96E4-6816-4B66-9A5D-C9D8BFF4A2AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AED96E4-6816-4B66-9A5D-C9D8BFF4A2AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80C48282-7C32-4093-B555-FAD9284367C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80C48282-7C32-4093-B555-FAD9284367C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80C48282-7C32-4093-B555-FAD9284367C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80C48282-7C32-4093-B555-FAD9284367C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E443AF0-E627-42D6-8E59-A432D852DE94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E443AF0-E627-42D6-8E59-A432D852DE94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E443AF0-E627-42D6-8E59-A432D852DE94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E443AF0-E627-42D6-8E59-A432D852DE94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{694548F0-BF84-4F64-9F57-45BEC7DF1CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{694548F0-BF84-4F64-9F57-45BEC7DF1CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{694548F0-BF84-4F64-9F57-45BEC7DF1CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{694548F0-BF84-4F64-9F57-45BEC7DF1CDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BD7C549-4B78-44EF-BAF1-4DE6422EEBA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD7C549-4B78-44EF-BAF1-4DE6422EEBA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD7C549-4B78-44EF-BAF1-4DE6422EEBA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BD7C549-4B78-44EF-BAF1-4DE6422EEBA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2604647-4726-4932-A7E2-C7E132BEC17E}
+	EndGlobalSection
+EndGlobal

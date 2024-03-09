@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Title>Kuva accounts business</Title>
+    <Description>Business accounts for Kuva</Description>
+    <Copyright>Bitx Labs Tecnologia Ltda</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.17.4" />
+    <PackageReference Include="Bitx.Security" Version="1.0.20" />
+    <PackageReference Include="Elastic.Apm.SerilogEnricher" Version="8.6.1" />
+    <PackageReference Include="Serilog" Version="3.1.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.3.0" />
+    <PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
+    <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Kuva.Accounts.Entities\Kuva.Accounts.Entities.csproj" />
+    <ProjectReference Include="..\Kuva.Accounts.Repository\Kuva.Accounts.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
