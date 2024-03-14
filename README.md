@@ -78,3 +78,7 @@ Para que o banco de dados seja atualizado execute o comando:
 ```bash
 dotnet ef database update
 ```
+
+> Caso apresente o erro max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+No linux pode ser necessário aumentar a memoria virtual utiliar o comando `sysctl -w vm.max_map_count=262144` e posteriormente `systemctl restart docker`.\
+
