@@ -1,17 +1,16 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Kuva.Accounts.Repository.Domain;
-using Kuva.Accounts.Repository.Data.Interfaces;
 
 namespace Kuva.Accounts.Repository
 {
-    public class AccountsContext: DbContext, IAccountsContext
+    public class AccountsContext : DbContext
     {
         public AccountsContext(DbContextOptions<AccountsContext> options) : base(options) { }
-        
-        public DbSet<UserDomain> User { get; }
-        public DbSet<UserLevelDomain> UserLevel { get; }
-        public DbSet<UserTokenDomain> UserToken { get; }
+
+        internal DbSet<UserDomain> User { get; }
+        internal DbSet<UserLevelDomain> UserLevel { get; }
+        internal DbSet<UserTokenDomain> UserToken { get; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

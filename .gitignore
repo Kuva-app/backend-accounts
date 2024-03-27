@@ -406,3 +406,5 @@ ASALocalRun/
 /docker
 /Source/Kuva.Accounts.EFMigrations/Migrations
 *.exe
+references.fsx
+*.dll

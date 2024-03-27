@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Kuva.Accounts.Entities;
 using Kuva.Accounts.Repository.Data.Interfaces;
 using Utilities.General.XunitPriorityAttributes;
-using Xunit;
 
 namespace Kuva.Accounts.Tests.Repository
 {

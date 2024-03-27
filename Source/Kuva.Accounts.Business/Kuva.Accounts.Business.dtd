@@ -1,0 +1,14 @@
+<!ELEMENT Project (PropertyGroup,ItemGroup+)>
+<!ATTLIST Project Sdk NMTOKEN #REQUIRED>
+<!ELEMENT PropertyGroup (TargetFramework,Title,Description,Copyright,UserSecretsId)>
+<!ELEMENT TargetFramework (#PCDATA)>
+<!ELEMENT Title (#PCDATA)>
+<!ELEMENT Description (#PCDATA)>
+<!ELEMENT Copyright (#PCDATA)>
+<!ELEMENT UserSecretsId (#PCDATA)>
+<!ELEMENT ItemGroup (PackageReference*,ProjectReference*)>
+<!ELEMENT PackageReference EMPTY>
+<!ATTLIST PackageReference Include NMTOKEN #REQUIRED>
+<!ATTLIST PackageReference Version NMTOKEN #REQUIRED>
+<!ELEMENT ProjectReference EMPTY>
+<!ATTLIST ProjectReference Include CDATA #REQUIRED>

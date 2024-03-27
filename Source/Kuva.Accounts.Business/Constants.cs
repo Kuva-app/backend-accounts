@@ -17,19 +17,19 @@ namespace Kuva.Accounts.Business
 
         internal static string GetAssemblyFileVersion()
         {
-            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var assembly = Assembly.GetExecutingAssembly();
             var fileVersion = FileVersionInfo.GetVersionInfo(assembly. Location);
             return fileVersion. FileVersion;
         }
         
         internal static string GetElasticIndex(IConfiguration configuration)
         {
-            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
             var elasticSearchIndex = configuration["ElasticConfiguration:Index"] ?? Assembly.GetExecutingAssembly().GetName().Name;
             elasticSearchIndex = elasticSearchIndex?.ToLower().Replace(".", "-");
             if (string.IsNullOrEmpty(elasticSearchIndex))
-                throw new NullReferenceException($"ElasticConfiguration:Index is required");
-            var index = $"{elasticSearchIndex.ToLower()}-{environment?.ToLower().Replace(".", "-")}-{DateTime.UtcNow:yyyy-MM}";
+                return null;
+            var index = $"{elasticSearchIndex.ToLower()}-{environment.ToLower().Replace(".", "-")}-{DateTime.UtcNow:yyyy-MM}";
             return index;
         }
     }

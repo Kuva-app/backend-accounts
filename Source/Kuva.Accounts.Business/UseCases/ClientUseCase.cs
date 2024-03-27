@@ -1,5 +1,5 @@
 ﻿using Kuva.Accounts.Business.UseCases.Interfaces;
-using Bitx.Security.Cryptography;
+using Utilities.Security.Cryptography;
 
 namespace Kuva.Accounts.Business.UseCases
 {

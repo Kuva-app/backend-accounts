@@ -39,18 +39,13 @@ namespace Kuva.Accounts.Business.QueueConnector
             if (string.IsNullOrEmpty(_serviceBusOptions.ConnectionString) || 
                 string.IsNullOrWhiteSpace(_serviceBusOptions.ConnectionString))
                 throw new ServiceQueueConnectorException(AccountsErrors.ServiceBusQueueConfigurationNull);
-            var serviceKey = GetServiceKey();
-            var connectionString = _serviceBusOptions.ConnectionString.Replace("{Azure:BusKey}", serviceKey);
-            _serviceBusOptions.ConnectionString = connectionString;
-        }
 
-        private string GetServiceKey()
-        {
-#if DEBUG
-            return _configuration["Azure:BusKey"] ?? "";
-#else
-            return "";
-#endif
+            if (string.IsNullOrEmpty(_serviceBusOptions.Key)
+                || string.IsNullOrWhiteSpace(_serviceBusOptions.Key))
+                throw new ServiceQueueConnectorException(AccountsErrors.ServiceBusQueueConfigurationNull);
+
+            var connectionString = _serviceBusOptions.ConnectionString.Replace("{Azure:BusKey}", _serviceBusOptions.Key);
+            _serviceBusOptions.ConnectionString = connectionString;
         }
     }
 }

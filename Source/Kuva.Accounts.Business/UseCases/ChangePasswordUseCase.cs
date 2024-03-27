@@ -1,6 +1,6 @@
 ﻿using System;
 using Kuva.Accounts.Entities;
-using Bitx.Security.Cryptography;
+using Utilities.Security.Cryptography;
 using Kuva.Accounts.Business.UseCases.Interfaces;
 
 namespace Kuva.Accounts.Business.UseCases

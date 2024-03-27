@@ -1,0 +1,21 @@
+<!ELEMENT Project (PropertyGroup,ItemGroup+)>
+<!ATTLIST Project Sdk NMTOKEN #REQUIRED>
+<!ELEMENT PropertyGroup (TargetFramework,Title,Description,Copyright)>
+<!ELEMENT TargetFramework (#PCDATA)>
+<!ELEMENT Title (#PCDATA)>
+<!ELEMENT Description (#PCDATA)>
+<!ELEMENT Copyright (#PCDATA)>
+<!ELEMENT ItemGroup (Compile*,PackageReference*,EmbeddedResource?,None?,ProjectReference?)>
+<!ELEMENT Compile EMPTY>
+<!ATTLIST Compile Remove CDATA #REQUIRED>
+<!ELEMENT PackageReference (PrivateAssets?,IncludeAssets?)>
+<!ATTLIST PackageReference Include NMTOKEN #REQUIRED>
+<!ATTLIST PackageReference Version NMTOKEN #REQUIRED>
+<!ELEMENT PrivateAssets (#PCDATA)>
+<!ELEMENT IncludeAssets (#PCDATA)>
+<!ELEMENT EmbeddedResource EMPTY>
+<!ATTLIST EmbeddedResource Remove CDATA #REQUIRED>
+<!ELEMENT None EMPTY>
+<!ATTLIST None Remove CDATA #REQUIRED>
+<!ELEMENT ProjectReference EMPTY>
+<!ATTLIST ProjectReference Include CDATA #REQUIRED>

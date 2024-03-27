@@ -30,17 +30,26 @@ Levar em consideração que o projeto utiliza o user-secrets para armazenar as v
 
 Os scripts serão executados no terminal e na raiz do projeto levando em consideração o scaffold do projeto.
 
-````
+```bash
 - backend-accounts
-  - Source
-	- Kuva.Accounts.Business
-	- Kuva.Accounts.EFMigrations
-	- Kuva.Accounts.Entities
-	- Kuva.Accounts.Repository
-	- Kuva.Accounts.Tests
-  - docker-compose.yml
-  	- README.md
-	- LICENSE
+├── LICENSE
+├── README.md
+├── Source
+│   ├── Kuva.Accounts.Business
+│   ├── Kuva.Accounts.EFMigrations
+│   ├── Kuva.Accounts.Entities
+│   ├── Kuva.Accounts.Repository
+│   ├── Kuva.Accounts.Service
+│   ├── Kuva.Accounts.Tests
+│   └── Kuva.Accounts.sln
+├── docker
+│   ├── certs
+│   ├── data
+│   ├── es01
+│   ├── kibana
+│   ├── log
+│   └── secrets
+└── docker-compose.yml
 ```
 
 Criar o user-secrets incluindo as variáveis:
@@ -48,7 +57,7 @@ Criar o user-secrets incluindo as variáveis:
 DB:User => Usuário do banco de dados
 DB:Password => Senha do banco de dados
 DB:Host => Host do banco de dados
-Azure:BusKey => Chave de acesso do Azure Service Bus
+ServiceBus:Key => Chave de acesso do Azure Service Bus
 
 Para criar o user-secrets execute o comando:
 
@@ -56,7 +65,7 @@ Para criar o user-secrets execute o comando:
 dotnet user-secrets set DB:User <user>
 dotnet user-secrets set DB:Password <password>
 dotnet user-secrets set DB:Host <host>
-dotnet user-secrets set Azure:BusKey <busKey>
+dotnet user-secrets set ServiceBus:Key <busKey>
 ```
 
 Para rodar o projeto execute o comando na raiz do projeto:
@@ -79,6 +88,16 @@ Para que o banco de dados seja atualizado execute o comando:
 dotnet ef database update
 ```
 
-> Caso apresente o erro max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
-No linux pode ser necessário aumentar a memoria virtual utiliar o comando `sysctl -w vm.max_map_count=262144` e posteriormente `systemctl restart docker`.\
+> Ao iniciar o container do Elasticsearch apresente o erro max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144] no linux pode ser necessário aumentar a memoria virtual utiliar o comando `sudo sysctl -w vm.max_map_count=262144` e posteriormente `sudo systemctl restart docker`.\
 
+Em caso de erro:
+
+```bash
+Error response from daemon: error while creating mount source path '/<PATH>/Kuva/backend-accounts/docker/certs': chown /<PATH>/Kuva/backend-accounts/docker/certs: operation not permitted
+```
+
+Executar a instrução.
+
+```bash
+sudo chmod -R 777 <PATH>/Kuva/backend-accounts/docker/certs
+```

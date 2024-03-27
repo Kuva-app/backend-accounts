@@ -32,6 +32,7 @@ namespace Kuva.Accounts.Tests.Business.QueueConnectorTest
                 
                 var actual = JsonConvert.DeserializeObject<UserEntity>(body);
                 
+                Assert.NotNull(actual);
                 Assert.Equal(expected.Active, actual.Active);
                 Assert.Equal(expected.Email, actual.Email);
                 Assert.Equal(expected.Id, actual.Id);

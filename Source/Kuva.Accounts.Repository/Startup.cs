@@ -26,9 +26,6 @@ namespace Kuva.Accounts.Repository
                 #else
                 connectionString = configuration.GetConnectionString(Constants.ConnectionStringName);
                 #endif
-                
-                if (string.IsNullOrEmpty(connectionString))
-                    throw new ArgumentNullException(Constants.ConnectionStringNullExceptionParams);
 
                 opt.UseSqlServer(connectionString, options =>
                 {
@@ -41,7 +38,6 @@ namespace Kuva.Accounts.Repository
 
         private static void AddData(this IServiceCollection services)
         {
-            services.AddTransient<IAccountContextFactory, AccountContextFactory>();
             services.AddTransient<IUserData, UserData>();
             services.AddTransient<IUserLevelData, UserLevelData>();
             services.AddTransient<IUserTokenData, UserTokenData>();

@@ -88,7 +88,7 @@ namespace Kuva.Accounts.Business
             return new ElasticsearchSinkOptions(new Uri(elasticSearchUriString))
             {
                 AutoRegisterTemplate = true,
-                AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv7,
+                AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv8,
                 IndexFormat = $"{index}"
             };
         }

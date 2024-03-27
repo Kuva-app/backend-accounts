@@ -1,6 +1,6 @@
 using System;
-using Bitx.Security.Cryptography;
-using Bitx.Security.Utils;
+using Utilities.Security.Cryptography;
+using Utilities.Security.Utils;
 using Kuva.Accounts.Business.UseCases.Interfaces;
 using Kuva.Accounts.Entities;
 using Newtonsoft.Json;

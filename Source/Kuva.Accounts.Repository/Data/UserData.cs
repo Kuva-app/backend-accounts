@@ -9,21 +9,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Kuva.Accounts.Repository.Data
 {
-    public class UserData : IUserData
+    public class UserData : BaseData, IUserData
     {
-        private readonly IAccountContextFactory _dBContextFactory;
-
-        private AccountsContext DbContext => _dBContextFactory.DbContext;
-
-        public UserData(IAccountContextFactory dBContextFactory)
+        public UserData(IDbContextFactory<AccountsContext> dbContext, IMapper mapper) : base(dbContext, mapper)
         {
-            _dBContextFactory = dBContextFactory;
         }
-        
+
         public async Task<UserEntity> GetUserByEmailAsync(string email)
         {
             var user = await DbContext.User.FirstOrDefaultAsync(_ => _.Email == email);
-            return _dBContextFactory.Map<UserEntity>(user);
+            return Map<UserEntity>(user);
         }
 
         public async Task<UserEntity> GetDataByPrimaryKeyAsync<TPk>(TPk primaryKey)
@@ -31,7 +26,7 @@ namespace Kuva.Accounts.Repository.Data
             if (!(primaryKey is long id))
                 return default;
             var user = await DbContext.User.FirstOrDefaultAsync(_ => _.Id == id);
-            return _dBContextFactory.Map<UserEntity>(user);
+            return Map<UserEntity>(user);
         }
         
         public async Task<IEnumerable<UserEntity>> GetAllActivesAsync(int page, int take)
@@ -51,7 +46,7 @@ namespace Kuva.Accounts.Repository.Data
                 return false;
             selectedUser.Passcode = newPasscode;
             DbContext.User.Update(selectedUser);
-            return await _dBContextFactory.SaveAsync();
+            return await SaveAsync();
         }
 
         public async Task<IEnumerable<UserEntity>> GetDataAsync(int page = 1, int take = 10)
@@ -60,17 +55,17 @@ namespace Kuva.Accounts.Repository.Data
                 .Skip((page - 1) * take)
                 .Take(take)
                 .ToListAsync();
-            return _dBContextFactory.Map<List<UserEntity>>(users);
+            return Map<List<UserEntity>>(users);
         }
 
         public async Task<UserEntity> AddDataAsync(UserEntity data)
         {
-            var user = _dBContextFactory.Map<UserDomain>(data);
+            var user = Map<UserDomain>(data);
             if (user == null)
                 return default;
             var added = await DbContext.User.AddAsync(user);
-            await _dBContextFactory.SaveAsync();
-            return _dBContextFactory.Map<UserEntity>(added.Entity);
+            await SaveAsync();
+            return Map<UserEntity>(added.Entity);
         }
 
         public async Task<bool> UpdateDataAsync(UserEntity data)
@@ -80,7 +75,7 @@ namespace Kuva.Accounts.Repository.Data
             user.Name = data.Name;
             user.UserLevelId = (short) data.UserLevelId;
             DbContext.User.Update(user);
-            var updated = await _dBContextFactory.SaveAsync();
+            var updated = await SaveAsync();
             return updated;
         }
 
@@ -92,7 +87,7 @@ namespace Kuva.Accounts.Repository.Data
             if (selectedUser == null)
                 return false;
             DbContext.User.Remove(selectedUser);
-            return await _dBContextFactory.SaveAsync();
+            return await SaveAsync();
         }
 
         private async Task<IEnumerable<UserEntity>> GetAllByStatusAsync(bool active, int page, int take)
@@ -101,7 +96,7 @@ namespace Kuva.Accounts.Repository.Data
                 .Skip((page - 1) * take)
                 .Take(take)
                 .ToListAsync();
-            return _dBContextFactory.Map<List<UserEntity>>(users);
+            return Map<List<UserEntity>>(users);
         }
     }
 }

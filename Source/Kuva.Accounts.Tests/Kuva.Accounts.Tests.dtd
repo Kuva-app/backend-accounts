@@ -1,0 +1,23 @@
+<!ELEMENT Project (PropertyGroup,ItemGroup+)>
+<!ATTLIST Project Sdk NMTOKEN #REQUIRED>
+<!ELEMENT PropertyGroup (TargetFramework,IsPackable,IsTestProject,Nullable,UserSecretsId)>
+<!ELEMENT TargetFramework (#PCDATA)>
+<!ELEMENT IsPackable (#PCDATA)>
+<!ELEMENT IsTestProject (#PCDATA)>
+<!ELEMENT Nullable (#PCDATA)>
+<!ELEMENT UserSecretsId (#PCDATA)>
+<!ELEMENT ItemGroup (PackageReference*,ProjectReference*,Using?,Content?)>
+<!ELEMENT PackageReference (IncludeAssets?,PrivateAssets?)>
+<!ATTLIST PackageReference Include ID #REQUIRED>
+<!ATTLIST PackageReference Version NMTOKEN #REQUIRED>
+<!ELEMENT IncludeAssets (#PCDATA)>
+<!ELEMENT PrivateAssets (#PCDATA)>
+<!ELEMENT ProjectReference EMPTY>
+<!ATTLIST ProjectReference Include CDATA #REQUIRED>
+<!ELEMENT Using EMPTY>
+<!ATTLIST Using Include NMTOKEN #REQUIRED>
+<!ELEMENT Content (ExcludeFromSingleFile,CopyToOutputDirectory,CopyToPublishDirectory)>
+<!ATTLIST Content Include NMTOKEN #REQUIRED>
+<!ELEMENT ExcludeFromSingleFile (#PCDATA)>
+<!ELEMENT CopyToOutputDirectory (#PCDATA)>
+<!ELEMENT CopyToPublishDirectory (#PCDATA)>

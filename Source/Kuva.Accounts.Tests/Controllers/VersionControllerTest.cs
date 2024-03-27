@@ -30,6 +30,7 @@ namespace Kuva.Accounts.Tests.Controllers
             response.EnsureSuccessStatusCode();
             var result = await response.Content.ReadAsStringAsync();
             var model = JsonConvert.DeserializeObject<VersionModel>(result);
+            Assert.NotNull(model);
             Assert.Equal(expected.Description, model.Description);
             Assert.Equal(expected.Version, model.Version);
         }
